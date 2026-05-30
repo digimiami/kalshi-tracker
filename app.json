@@ -23,9 +23,6 @@
       },
       "package": "com.digimiami.kalshitracker",
       "permissions": ["INTERNET"]
-    },
-    "plugins": [
-      "expo-router"
-    ]
+    }
   }
 }
