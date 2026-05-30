@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Kalshi Tracker",
+    "slug": "kalshi-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0e27"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.digimiami.kalshitracker"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0a0e27"
+      },
+      "package": "com.digimiami.kalshitracker",
+      "permissions": ["INTERNET"]
+    },
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}
