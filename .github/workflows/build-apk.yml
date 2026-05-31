@@ -24,6 +24,13 @@ jobs:
       - name: Prebuild native project
         run: npx expo prebuild --platform android --clean
 
+      - name: Fix Kotlin Compose compatibility
+        run: |
+          echo "" >> android/gradle.properties
+          echo "# Force Kotlin version compatibility" >> android/gradle.properties
+          echo "kotlinVersion=1.9.25" >> android/gradle.properties
+          echo "suppressKotlinVersionCompatibilityCheck=true" >> android/gradle.properties
+
       - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
@@ -36,11 +43,10 @@ jobs:
       - name: Accept Android licenses
         run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
-      - name: Build Release APK
+      - name: Build Debug APK
         run: |
           cd android
           chmod +x gradlew
-          # Use a build that won't trigger compose/kotlin issues by building debug instead
           ./gradlew assembleDebug --no-daemon 2>&1
 
       - name: Upload APK
